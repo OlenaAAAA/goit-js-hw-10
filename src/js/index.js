@@ -2,7 +2,7 @@
 
 
 import { fetchBreeds, fetchCatByBreed } from "./cat-api";
-import './styles.css';
+import '../css/styles.css';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import SlimSelect from 'slim-select'
 import 'slim-select/dist/slimselect.css';
@@ -21,7 +21,7 @@ divCatInfo.classList.add('hidden');
 selector.classList.add('hidden');
         error.hidden = true;
         loader.hidden = true;
-
+        selector.hidden = true;
 
 
 fetchBreeds()
@@ -32,7 +32,9 @@ fetchBreeds()
         
         new SlimSelect({
         select: selector,
-            });
+        });
+        selector.hidden = false;
+
         })
     .catch(onFetchError);
 
